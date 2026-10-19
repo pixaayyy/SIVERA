@@ -174,6 +174,11 @@
         </div>
         <div class="login-right">
             <h2>Selamat Datang!</h2>
+            @if(session('success'))
+                <div style="background-color: #d4edda; color: #155724; padding: 12px; border-radius: 8px; font-size: 13px; margin-bottom: 15px; border: 1px solid #c3e6cb;">
+                    {{ session('success') }}
+                </div>
+            @endif
             <form action="{{ route('login.post') }}" method="POST">
                 @csrf
                 <div class="form-group">
@@ -194,7 +199,7 @@
                     <div class="error-message">{{ $message }}</div>
                 @enderror
 
-                <a href="lupa_katasandi" class="lupa-sandi">Lupa kata sandi?</a>
+                <a href="{{ route('lupa-sandi') }}" class="lupa-sandi">Lupa kata sandi?</a>
 
                 <button type="submit" class="btn-login">Masuk</button>
             </form>
