@@ -1,48 +1,36 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIVERA - Dashboard</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f7f6;
-            display: flex;
-            height: 100vh;
-        }
-        .main-content {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-        }
-        .topbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: white;
-            padding: 15px 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
-        }
-    </style>
-</head>
-<body>
-    @if(Auth::user()->role === 'admin')
-        @include('layouts.sidebar.admin')
-    @else
-        @include('layouts.sidebar.karyawan')
-    @endif
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <div class="main-content">
-        <div class="topbar">
-            <h2>@yield('title')</h2>
-            <div>{{ date('l, d M Y') }}</div>
+        <title>{{ config('app.name', 'Laravel') }}</title>
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+
+        <!-- Scripts -->
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    </head>
+    <body class="font-sans antialiased">
+        <div class="min-h-screen bg-gray-100">
+            @include('layouts.navigation')
+
+            <!-- Page Heading -->
+            @isset($header)
+                <header class="bg-white shadow">
+                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                        {{ $header }}
+                    </div>
+                </header>
+            @endisset
+
+            <!-- Page Content -->
+            <main>
+                {{ $slot }}
+            </main>
         </div>
-        @yield('content')
-    </div>
-</body>
+    </body>
 </html>

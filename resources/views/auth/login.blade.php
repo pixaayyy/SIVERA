@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
     <title>Login - SIVERA</title>
@@ -184,7 +185,7 @@
                 <div class="form-group">
                     <label>ID Pengguna</label>
                     <div class="input-wrapper">
-                        <input type="text" name="username" class="form-control" placeholder="Masukkan username..."value="{{ old('username') }}" required>
+                        <input type="text" name="username" class="form-control" placeholder="Masukkan username..." value="{{ old('username') }}" required>
                         <i class="fa-regular fa-user"></i>
                     </div>
                 </div>
@@ -200,11 +201,10 @@
                 @enderror
 
                 <a href="{{ route('lupa-sandi') }}" class="lupa-sandi">Lupa kata sandi?</a>
-
+                
                 <button type="submit" class="btn-login">Masuk</button>
             </form>
         </div>
     </div>
 </body>
-
 </html>
