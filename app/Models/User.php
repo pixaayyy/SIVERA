@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class User extends Authenticatable
 {
+    protected $table = 'user';
+    
     use HasFactory, Notifiable;
 
     protected $fillable = [
