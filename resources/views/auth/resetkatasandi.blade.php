@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kata Sandi Baru - SIVERA</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -100,10 +97,6 @@
             border-color: #38b6ff;
             box-shadow: 0 0 0 3px rgba(56, 182, 255, 0.2);
         }
-        .form-control:focus + i,
-        .input-wrapper:focus-within i {
-            color: #38b6ff;
-        }
         .btn-login {
             width: 100%;
             padding: 12px;
@@ -114,14 +107,11 @@
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.1s ease;
+            transition: background-color 0.3s ease;
             margin-top: 10px;
         }
         .btn-login:hover {
             background-color: #38b6ff;
-        }
-        .btn-login:active {
-            transform: scale(0.98);
         }
         .error-message {
             color: #dc3545;

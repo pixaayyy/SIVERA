@@ -14,7 +14,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/lupa-sandi', [AuthController::class, 'lupaKatasandi'])->name('lupa-sandi')->middleware('guest');
 Route::post('/lupa-sandi', [AuthController::class, 'prosesLupaKatasandi'])->name('lupa-sandi.post')->middleware('guest');
 
-// Rute untuk reset kata sandi (middleware guest dihapus dari dua baris ini)
+// Rute untuk reset kata sandi
 Route::get('/reset-password/{token}', [AuthController::class, 'formResetKatasandi'])->name('reset-password.form');
 Route::post('/reset-password', [AuthController::class, 'prosesResetKatasandi'])->name('reset-password.post');
 
