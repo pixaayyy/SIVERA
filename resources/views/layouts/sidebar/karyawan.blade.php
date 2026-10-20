@@ -134,7 +134,8 @@
             <a href="{{ route('karyawan.dashboard') }}" class="menu-item {{ request()->routeIs('karyawan.dashboard') ? 'active' : '' }}">Dashboard</a>
             <a href="{{ route('karyawan.tambahbarang') }}" class="menu-item {{ request()->routeIs('karyawan.tambahbarang*') ? 'active' : '' }}">Tambah Barang</a>
             <a href="{{ route('karyawan.databarang') }}" class="menu-item {{ request()->routeIs('karyawan.databarang*') ? 'active' : '' }}">Data Barang</a>
-            <a href="{{ route('karyawan.monitoring') }}" class="menu-item active">Monitoring Barang</a>        </div>
+            <a href="{{ route('karyawan.monitoring') }}" class="menu-item {{ request()->routeIs('karyawan.monitoring*') ? 'active' : ''}}">Monitoring Barang</a>
+        </div>
 
         <div class="sidebar-profile">
             <div class="user-info">
