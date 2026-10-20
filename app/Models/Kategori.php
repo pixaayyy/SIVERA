@@ -13,8 +13,6 @@ class Kategori extends Model
     protected $primaryKey = 'id_kategori';
     public $timestamps = false;
 
-    public $timestamps = false;
-
     protected $fillable = ['jenis_kategori',];
     public function barang()
     {
