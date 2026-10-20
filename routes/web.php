@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboard;
 use App\Http\Controllers\Karyawan\DashboardController as KaryawanDashboard;
+use App\Http\Controllers\Karyawan\TambahbarangController;
+use App\Http\Controllers\Karyawan\DataBarangController;
+use App\Http\Controllers\Karyawan\EditBarangController;
+use App\Http\Controllers\NotifikasiController;
 
 // Rute untuk halaman login dan proses autentikasi
 Route::get('/', [AuthController::class, 'index'])->name('login')->middleware('guest');
@@ -26,4 +30,15 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 // Rute grup untuk role Karyawan
 Route::middleware(['auth'])->prefix('karyawan')->name('karyawan.')->group(function () {
     Route::get('/dashboard', [KaryawanDashboard::class, 'index'])->name('dashboard');
+    Route::get('/tambah-barang', [TambahbarangController::class, 'index'])->name('tambahbarang');
+    Route::post('/tambah-barang', [TambahbarangController::class, 'store'])->name('tambahbarang.store');
+    Route::get('/data-barang', [DataBarangController::class, 'index'])->name('databarang');
+    Route::get('/barang/{id}/edit', [EditBarangController::class, 'edit'])->name('editbarang');
+    Route::put('/barang/{id}', [EditBarangController::class, 'update'])->name('updatebarang');
+    Route::delete('/barang/{id}', [EditBarangController::class, 'destroy'])->name('deletebarang');
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/notifikasi/read/{id}', [NotifikasiController::class, 'markAsRead'])->name('notifikasi.read');
+    Route::get('/notifikasi/read-all', [NotifikasiController::class, 'markAllAsRead'])->name('notifikasi.readAll');
 });
