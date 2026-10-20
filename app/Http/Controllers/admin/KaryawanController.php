@@ -23,8 +23,8 @@ class KaryawanController extends Controller
     {
         $validated = $request->validate([
             'nama_karyawan' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'email', 'max:255', 'unique:users,email'],
-            'username' => ['required', 'alpha_dash', 'max:50', 'unique:users,username'],
+            'email' => ['required', 'email', 'max:255', 'unique:user,email'],
+            'username' => ['required', 'alpha_dash', 'max:50', 'unique:user,username'],
             'password' => ['required', 'string', 'min:8'],
             'role' => ['required', Rule::in(['admin', 'karyawan'])],
         ]);

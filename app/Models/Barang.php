@@ -11,6 +11,10 @@ class Barang extends Model
     protected $table = 'barang';
     protected $primaryKey = 'id_barang';
     public $timestamps = false;
+
+    protected $table = 'barang';
+    protected $primaryKey = 'id_barang';
+
     protected $fillable = [
         'tanggal_masuk',
         'nama_barang',
@@ -22,6 +26,7 @@ class Barang extends Model
         'departemen',
         'nomor_asset',
     ];
+
     public function kategori()
     {
         return $this->belongsTo(Kategori::class, 'kategori_barang', 'id_kategori');
