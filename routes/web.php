@@ -34,6 +34,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('login');
+Route::post('logout',[AuthenticatedSessionController::class, 'destory'])->named('logout');
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])->name('login.post');
 Route::get('/lupa-sandi', [PasswordResetLinkController::class, 'create'])->name('lupa-sandi');
 Route::post('/lupa-sandi', [PasswordResetLinkController::class, 'store'])->name('lupa-sandi.post');

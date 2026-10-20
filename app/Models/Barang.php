@@ -12,9 +12,6 @@ class Barang extends Model
     protected $primaryKey = 'id_barang';
     public $timestamps = false;
 
-    protected $table = 'barang';
-    protected $primaryKey = 'id_barang';
-
     protected $fillable = [
         'tanggal_masuk',
         'nama_barang',
