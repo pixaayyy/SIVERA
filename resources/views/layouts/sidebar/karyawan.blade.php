@@ -43,19 +43,19 @@
         cursor: pointer;
     }
 </style>
-<div class="sidebar">
-    <div class="sidebar-brand">SIVERA<br><span style="font-size: 10px; color: #888;">Karyawan</span></div>
-    <div class="sidebar-menu">
-        <a href="{{ route('karyawan.dashboard') }}" class="menu-item active">Dashboard</a>
-        <a href="#" class="menu-item">Data Barang</a>
-        <a href="#" class="menu-item">Tambah Barang</a>
-        <a href="#" class="menu-item">Monitoring Barang</a>
+    <div class="sidebar">
+        <div class="sidebar-brand">SIVERA<br><span style="font-size: 10px; color: #888;">Karyawan</span></div>
+            <div class="sidebar-menu">
+                <a href="{{ route('karyawan.dashboard') }}" class="menu-item">Dashboard</a>
+                <a href="#" class="menu-item">Data Barang</a>
+                <a href="#" class="menu-item">Tambah Barang</a>
+                <a href="{{ route('karyawan.monitoring') }}" class="menu-item active">Monitoring Barang</a>
+            </div>
+        <div class="sidebar-footer">
+            <div style="margin-bottom: 10px;"><b>{{ Auth::user()->name }}</b></div>
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit" class="btn-logout">Logout</button>
+            </form>
+        </div>
     </div>
-    <div class="sidebar-footer">
-        <div style="margin-bottom: 10px;"><b>{{ Auth::user()->name }}</b></div>
-        <form action="{{ route('logout') }}" method="POST">
-            @csrf
-            <button type="submit" class="btn-logout">Logout</button>
-        </form>
-    </div>
-</div>

@@ -155,7 +155,7 @@
                 <form action="{{ route('lupa-sandi.post') }}" method="POST">
                     @csrf
                     <div class="form-group">
-                        <label>ID Pengguna</label>
+                        <label>Username</label>
                         <div class="input-wrapper">
                             <input type="text" name="username" class="form-control" placeholder="Masukkan username..." value="{{ old('username') }}" required>
                             <i class="fa-regular fa-user"></i>
