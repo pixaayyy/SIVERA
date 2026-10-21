@@ -49,6 +49,10 @@ Route::middleware(['auth'])->prefix('karyawan')->name('karyawan.')->group(functi
     Route::delete('/barang/{id}', [KaryawanEditBarang::class, 'destroy'])->name('deletebarang');
     Route::get('/monitoring', [KaryawanMonitoring::class, 'index'])->name('monitoring');
     Route::get('/monitoring/export-pdf', [KaryawanMonitoring::class, 'exportPdf'])->name('monitoring.pdf');
+    Route::get('/karyawan/dashboard', [KaryawanDashboard::class, 'index'])->name('karyawan.dashboard');
+    Route::get('/karyawan/monitoring', [MonitoringController::class, 'index'])->name('karyawan.monitoring');
+    Route::get('/karyawan/monitoring/export-pdf', [MonitoringController::class, 'exportPdf'])->name('karyawan.monitoring.pdf');
+    Route::get('/karyawan/monitoring/export-excel', [MonitoringController::class, 'exportExcel'])->name('karyawan.monitoring.excel');
 });
 
 // Rute grup untuk role Admin

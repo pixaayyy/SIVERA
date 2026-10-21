@@ -28,7 +28,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        // Cek Role User
         $user = Auth::user();
 
         if ($user->role === 'admin') {

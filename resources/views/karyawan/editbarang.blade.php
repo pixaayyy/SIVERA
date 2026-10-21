@@ -11,7 +11,7 @@
     .form-card {
         background: #ffffff;
         border-radius: 12px;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 1px 3px rgba  (0, 0, 0, 0.05);
         border: 1px solid #e2e8f0;
         padding: 30px;
         max-width: 800px;
