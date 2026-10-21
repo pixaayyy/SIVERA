@@ -172,6 +172,9 @@
                         </div>
                         <button type="submit" class="btn-login">Kirim</button>
                         <a href="{{ route('login') }}" class="kembali-login">Kembali ke halaman login</a>
+                    <div style="text-align: center; margin-top: 30px; color: #718096; font-size: 12px;">
+                        &copy; 2026 SIVERA. Created by Politeknik Negeri Cilacap.
+                    </div>  
                     </form>
                 @endif
             </div>

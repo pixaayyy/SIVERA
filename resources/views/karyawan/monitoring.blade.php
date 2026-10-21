@@ -8,7 +8,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 20px 40px;
+        padding: 20px 30px;
         background-color: #ffffff;
         border-bottom: 1px solid #e2e8f0;
     }
@@ -215,7 +215,7 @@
         <div class="header-right">
             <div class="date-badge">
                 <i class="fa-regular fa-calendar"></i>
-                <span>{{ \Carbon\Carbon::now()->isoFormat('D MMM YYYY') }}</span>
+                {{ \Carbon\Carbon::now()->translatedFormat('l, d M Y') }}
             </div>
             @include('notifikasi')
         </div>

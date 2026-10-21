@@ -203,6 +203,9 @@
                     
                     <button type="submit" class="btn-login">Masuk</button>
                 </form>
+                <div style="text-align: center; margin-top: 30px; color: #718096; font-size: 12px;">
+                    &copy; 2026 SIVERA. Created by Politeknik Negeri Cilacap.
+                </div>
             </div>
         </div>
     </body>
