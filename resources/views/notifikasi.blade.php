@@ -87,17 +87,14 @@
 </style>
 
 @php
-    // Mengambil notifikasi unread untuk user yang sedang login
     $unreadNotifications = auth()->user()->unreadNotifications;
 @endphp
 
 <div class="notification-wrapper">
-    <!-- Ikon Lonceng -->
     <div class="notification-icon {{ $unreadNotifications->count() > 0 ? 'has-unread' : '' }}" onclick="toggleNotif()">
         <i class="fa-regular fa-bell"></i>
     </div>
 
-    <!-- Dropdown -->
     <div class="notification-dropdown" id="notifDropdown">
         <div class="notification-header">
             <h4>Notifikasi ({{ $unreadNotifications->count() }})</h4>
@@ -126,7 +123,6 @@
         document.getElementById('notifDropdown').classList.toggle('show');
     }
     
-    // Tutup dropdown jika klik di luar area
     window.onclick = function(event) {
         if (!event.target.closest('.notification-wrapper')) {
             var dropdowns = document.getElementsByClassName("notification-dropdown");

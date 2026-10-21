@@ -38,7 +38,6 @@ class MonitoringController extends Controller
         return view('karyawan.monitoring', compact('barang'));
     }
 
-    // Method baru untuk Cetak / Unduh Laporan PDF
     public function exportPdf(Request $request)
     {
         $query = Barang::with('kategori');

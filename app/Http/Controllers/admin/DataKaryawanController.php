@@ -10,13 +10,12 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 
-class KaryawanController extends Controller
+class DataKaryawanController extends Controller
 {
     public function index()
     {
-        $karyawans = Karyawan::with('user')->latest()->get();
-
-        return view('admin.karyawan.index', compact('karyawans'));
+        $karyawan = Karyawan::with('user')->latest()->get();
+        return view('admin.datakaryawan', compact('karyawan'));
     }
 
     public function store(Request $request)
@@ -55,8 +54,6 @@ class KaryawanController extends Controller
     {
         $karyawan->user()->delete();
 
-        return redirect()
-            ->route('admin.karyawan.index')
-            ->with('success', 'Data karyawan berhasil dihapus.');
+        return redirect()->route('admin.datakaryawan')->with('success', 'Data karyawan berhasil dihapus.');
     }
 }
