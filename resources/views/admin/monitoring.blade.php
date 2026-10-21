@@ -41,7 +41,7 @@
     .content-container {
         padding: 30px 40px;
         background-color: #f4f7fb;
-        min-height: calc(100vh - 80px); /* Menyesuaikan tinggi area konten */
+        min-height: calc(100vh - 80px);
     }
 
     .card {
@@ -77,6 +77,7 @@
         display: flex;
         align-items: center;
         gap: 10px;
+        flex-wrap: wrap;
     }
 
     .select-filter {
@@ -147,26 +148,6 @@
         color: #a0aec0;
     }
 
-    .btn-download-pdf {
-        background-color: #63b3ed;
-        color: white;
-        border: none;
-        padding: 10px 22px;
-        border-radius: 10px;
-        font-size: 13px;
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        text-decoration: none;
-        cursor: pointer;
-        white-space: nowrap;
-    }
-
-    .btn-download-pdf:hover {
-        background-color: #4299e1;
-    }
-
     .table-responsive {
         width: 100%;
         overflow-x: auto;
@@ -215,7 +196,7 @@
     <div class="header-right">
         <div class="date-badge">
             <i class="fa-regular fa-calendar"></i>
-            <span>{{ \Carbon\Carbon::now()->isoFormat('D MMM YYYY') }}</span>
+            {{ \Carbon\Carbon::now()->translatedFormat('l, d M Y') }}
         </div>
         @include('notifikasi')
     </div>
@@ -231,6 +212,8 @@
                 </div>
                 
                 <div class="filter-section">
+                    <input type="date" name="tanggal" value="{{ request('tanggal') }}" class="select-filter" onchange="this.form.submit()" title="Filter Tanggal Spesifik">
+
                     <select name="bulan" class="select-filter" onchange="this.form.submit()">
                         <option value="">Pilih Bulan</option>
                         @for ($m = 1; $m <= 12; $m++)
@@ -261,9 +244,13 @@
                     <input type="text" name="search" class="search-input" placeholder="Cari berdasarkan kode, nama, tipe atau no asset..." value="{{ request('search') }}">
                 </div>
 
-                <div style="display: flex; justify-content: flex-end;">
-                    <a href="{{ url('/admin/monitoring/export-pdf?' . http_build_query(request()->all())) }}" class="btn-download-pdf">
-                        <i class="fa-solid fa-download"></i> Unduh Laporan
+                <div style="display: flex; justify-content: flex-end; gap: 10px;">
+                    <a href="{{ url('/admin/monitoring/export-pdf?' . http_build_query(request()->all())) }}" style="background-color: #c53030; color: white; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-size: 13px; display: inline-flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-file-pdf"></i> Unduh PDF
+                    </a>
+                    
+                    <a href="{{ route('admin.monitoring.excel', request()->all()) }}" style="background-color: #2f855a; color: white; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-size: 13px; display: inline-flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-file-excel"></i> Unduh Excel
                     </a>
                 </div>
             </div>

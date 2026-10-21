@@ -231,6 +231,9 @@
                     </div>
                     
                     <div class="filter-section">
+
+                         <input type="date" name="tanggal" value="{{ request('tanggal') }}" class="select-filter" onchange="this.form.submit()" title="Filter Tanggal Spesifik">
+
                         <select name="bulan" class="select-filter" onchange="this.form.submit()">
                             <option value="">Pilih Bulan</option>
                             @for ($m = 1; $m <= 12; $m++)

@@ -38,7 +38,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/notifikasi/read-all', [NotifikasiController::class, 'markAllAsRead'])->name('notifikasi.readAll');
 });
 
-// Rute grup untuk role Karyawan
 Route::middleware(['auth'])->prefix('karyawan')->name('karyawan.')->group(function () {
     Route::get('/dashboard', [KaryawanDashboard::class, 'index'])->name('dashboard');
     Route::get('/tambah-barang', [KaryawanTambahBarang::class, 'index'])->name('tambahbarang');
@@ -49,13 +48,9 @@ Route::middleware(['auth'])->prefix('karyawan')->name('karyawan.')->group(functi
     Route::delete('/barang/{id}', [KaryawanEditBarang::class, 'destroy'])->name('deletebarang');
     Route::get('/monitoring', [KaryawanMonitoring::class, 'index'])->name('monitoring');
     Route::get('/monitoring/export-pdf', [KaryawanMonitoring::class, 'exportPdf'])->name('monitoring.pdf');
-    Route::get('/karyawan/dashboard', [KaryawanDashboard::class, 'index'])->name('karyawan.dashboard');
-    Route::get('/karyawan/monitoring', [MonitoringController::class, 'index'])->name('karyawan.monitoring');
-    Route::get('/karyawan/monitoring/export-pdf', [MonitoringController::class, 'exportPdf'])->name('karyawan.monitoring.pdf');
-    Route::get('/karyawan/monitoring/export-excel', [MonitoringController::class, 'exportExcel'])->name('karyawan.monitoring.excel');
+    Route::get('/monitoring/export-excel', [KaryawanMonitoring::class, 'exportExcel'])->name('monitoring.excel');
 });
 
-// Rute grup untuk role Admin
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminDashboard::class, 'index'])->name('dashboard');
     Route::get('/tambah-barang', [AdminTambahBarang::class, 'index'])->name('tambahbarang');
@@ -66,12 +61,14 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::delete('/barang/{id}', [AdminEditBarang::class, 'destroy'])->name('deletebarang');
     Route::post('/kategori/store', [AdminDataBarang::class, 'storeKategori'])->name('kategori.store');
     Route::delete('/kategori/{id}', [App\Http\Controllers\Admin\DataBarangController::class, 'destroyKategori'])->name('kategori.destroy');
-    Route::get('/monitoring', [AdminMonitoring::class, 'index'])->name('monitoring');    
-    Route::get('/monitoring/export-pdf', [AdminMonitoring::class, 'exportPdf'])->name('monitoring.pdf');
     Route::get('/data-karyawan', [AdminDataKaryawan::class, 'index'])->name('datakaryawan');
     Route::get('/karyawan/tambah', [AdminTambahKaryawan::class, 'create'])->name('karyawan.tambah');
     Route::post('/karyawan/simpan', [AdminTambahKaryawan::class, 'store'])->name('karyawan.simpan');
     Route::get('/karyawan/edit/{id}', [EditKaryawanController::class, 'edit'])->name('karyawan.edit');
     Route::put('/karyawan/update/{id}', [EditKaryawanController::class, 'update'])->name('karyawan.update');
     Route::delete('/karyawan/hapus/{id}', [EditKaryawanController::class, 'destroy'])->name('karyawan.destroy');
+    Route::get('/monitoring', [AdminMonitoring::class, 'index'])->name('monitoring');
+    Route::get('/monitoring/export-pdf', [AdminMonitoring::class, 'exportPdf'])->name('monitoring.pdf');
+    Route::get('/monitoring/export-excel', [AdminMonitoring::class, 'exportExcel'])->name('monitoring.excel');
+
 });

@@ -4,7 +4,7 @@
 <style>
     .databarang-container {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #f8fafc; /* Latar belakang abu-abu muda untuk seluruh halaman */
+        background-color: #f8fafc; 
         min-height: 100vh;
     }
 
@@ -168,7 +168,6 @@
         background-color: #eff6ff;
     }
 
-    /* Tabel */
     .table-responsive {
         width: 100%;
         overflow-x: auto;

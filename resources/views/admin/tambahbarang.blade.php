@@ -93,14 +93,12 @@
         border-color: #38b6ff; 
     }
 
-    /* Style untuk wrapper select kategori agar tombol sejajar */
     .kategori-wrapper {
         display: flex;
         gap: 10px;
         align-items: center;
     }
 
-    /* Tombol Tambah Kategori di Form */
     .btn-tambah-kat {
         background-color: #10b981;
         color: white;

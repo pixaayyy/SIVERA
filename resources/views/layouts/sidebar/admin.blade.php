@@ -101,10 +101,10 @@
             width: 100%;
             padding: 8px 16px;
             background-color: transparent;
-            color: #dc2626; /* Warna merah teks */
+            color: #dc2626; 
             font-size: 16px;
             font-weight: 600;
-            border: 2px solid #d1d5db; /* Border abu-abu */
+            border: 2px solid #d1d5db; 
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.2s ease;

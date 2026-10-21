@@ -13,6 +13,10 @@ class MonitoringController extends Controller
     {
         $query = Barang::with('kategori');
 
+        if ($request->filled('tanggal')) {
+            $query->whereDate('tanggal_masuk', $request->tanggal);
+        }
+
         if ($request->filled('bulan')) {
             $query->whereMonth('tanggal_masuk', $request->bulan);
         }

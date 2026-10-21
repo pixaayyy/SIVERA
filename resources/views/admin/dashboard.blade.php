@@ -59,14 +59,12 @@
         <div class="date-badge">
             <i class="fa-regular fa-calendar"></i> {{ \Carbon\Carbon::now()->translatedFormat('l, d M Y') }}
         </div>
-        {{-- Pastikan view 'notifikasi.blade.php' ada, atau hapus jika belum dibuat --}}
         @includeIf('notifikasi') 
     </div>
 </div>
 
 <div class="dashboard-body">    
     <div style="display: flex; gap: 20px; margin-bottom: 30px;">
-        <!-- Card 1: Total Barang -->
         <div style="flex: 1; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); display: flex; justify-content: space-between; align-items: center;">
             <div>
                 <h4 style="margin: 0 0 10px 0; color: #888; font-weight: 500;">Total Barang</h4>
@@ -78,7 +76,6 @@
             </div>
         </div>
 
-        <!-- Card 2: Barang Rusak -->
         <div style="flex: 1; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); display: flex; justify-content: space-between; align-items: center;">
             <div>
                 <h4 style="margin: 0 0 10px 0; color: #888; font-weight: 500;">Barang Rusak</h4>
@@ -90,22 +87,18 @@
             </div>
         </div>
 
-        <!-- Card 3: Total Karyawan (Telah diubah sesuai image_51293a.png) -->
         <div style="flex: 1; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); display: flex; justify-content: space-between; align-items: center;">
             <div>
                 <h4 style="margin: 0 0 10px 0; color: #555; font-weight: 500;">Total Karyawan</h4>
-                <!-- Warna angka diubah ke #d4a338 (warna kuning emas) -->
                 <h2 style="margin: 0; color: #d4a338; font-size: 32px;">{{ $totalKaryawan ?? 0 }}</h2>
                 <span style="font-size: 10px; color: #aaa;">Jumlah Karyawan Departemen IT</span>
             </div>
-            <!-- Background icon dan warna icon diubah ke nuansa kuning/emas -->
             <div style="background: #f8f6d6; padding: 15px; border-radius: 10px;">
                 <i class="fa-solid fa-user" style="font-size: 24px; color: #d4a338;"></i>
             </div>
         </div>
     </div>
 
-    <!-- Bagian Kategori dan Tabel Barang Rusak Masuk -->
     <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 20px;">
         
         <div style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.03);">

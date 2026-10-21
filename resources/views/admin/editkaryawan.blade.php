@@ -110,7 +110,7 @@
         
         <form action="{{ route('admin.karyawan.update', $karyawan->id) }}" method="POST">
             @csrf
-            @method('PUT') <!-- Method wajib untuk update data -->
+            @method('PUT') 
             <div class="form-grid">
                 
                 <div class="form-group">
@@ -131,7 +131,6 @@
                 <div class="form-group mb-3">
                     <label for="password">Password (Opsional) :</label>
                     <div style="position: relative;">
-                        <!-- Hilangkan 'required' agar tidak wajib diisi -->
                         <input type="password" name="password" id="password" class="form-control" style="padding-right: 40px;" placeholder="Kosongkan jika tidak diubah">
                         <button type="button" id="togglePassword" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); border: none; background: transparent; cursor: pointer; color: #6c757d; padding: 0;">
                             <i class="fas fa-eye-slash" id="eyeIcon"></i>

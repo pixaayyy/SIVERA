@@ -4,17 +4,15 @@
 
 @section('content')
 <style>
-    /* Latar belakang untuk memusatkan form */
     .main-container {
         padding: 30px;
-        background-color: #f4f7f6; /* Warna abu-abu terang */
+        background-color: #f4f7f6;
         min-height: calc(100vh - 65px);
         display: flex;
         justify-content: center;
-        align-items: center; /* Memposisikan card di tengah secara vertikal */
+        align-items: center;
     }
 
-    /* Styling kotak form (Card/Modal) */
     .custom-card {
         background: #ffffff;
         border-radius: 12px;
@@ -25,7 +23,6 @@
         position: relative;
     }
 
-    /* Tombol silang (X) di pojok kanan atas */
     .close-btn {
         position: absolute;
         top: 25px;
@@ -47,11 +44,10 @@
         margin-bottom: 30px;
     }
 
-    /* Membuat Layout 2 Kolom dengan CSS Grid */
     .form-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr; /* 2 kolom berukuran sama */
-        gap: 20px 40px; /* Jarak antar baris dan antar kolom */
+        grid-template-columns: 1fr 1fr;
+        gap: 20px 40px;
     }
 
     .form-group {
@@ -66,7 +62,6 @@
         color: #333;
     }
 
-    /* Styling Input Field */
     .form-control {
         padding: 12px 15px;
         border: 1px solid #ccc;
@@ -84,10 +79,9 @@
         box-shadow: 0 0 5px rgba(86, 186, 248, 0.3);
     }
 
-    /* Area Tombol */
     .btn-container {
         display: flex;
-        justify-content: flex-end; /* Memposisikan tombol di kanan */
+        justify-content: flex-end;
         gap: 15px;
         margin-top: 40px;
         margin-right: 20px;
@@ -129,7 +123,7 @@
 
 <div class="main-container">
     <div class="custom-card">
-        <!-- Tombol silang di kanan atas mengarah kembali ke data karyawan -->
+
         <a href="{{ route('admin.datakaryawan') }}" class="close-btn">&times;</a>
         
         <h3>Tambah Data Karyawan</h3>
@@ -137,7 +131,7 @@
         <form action="{{ route('admin.karyawan.simpan') }}" method="POST">
             @csrf
             <div class="form-grid">
-                <!-- Baris 1 -->
+
                 <div class="form-group">
                     <label for="nama_karyawan">Nama Karyawan :</label>
                     <input type="text" name="nama_karyawan" id="nama_karyawan" class="form-control" placeholder="Masukan Nama Karyawan" required>
@@ -148,7 +142,6 @@
                     <input type="email" name="email" id="email" class="form-control" placeholder="Masukan Email Karyawan" required>
                 </div>
                 
-                <!-- Baris 2 -->
                 <div class="form-group">
                     <label for="username">Username :</label>
                     <input type="text" name="username" id="username" class="form-control" placeholder="Masukan Username Karyawan" required>
