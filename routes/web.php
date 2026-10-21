@@ -46,4 +46,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/dashboard', [AdminDashboard::class, 'index'])->name('admin.dashboard');
     Route::get('/karyawan/monitoring', [MonitoringController::class, 'index'])->name('karyawan.monitoring');
     Route::get('/karyawan/monitoring/export-pdf', [MonitoringController::class, 'exportPdf'])->name('karyawan.monitoring.pdf');
+    Route::get('/karyawan/monitoring/export-excel', [MonitoringController::class, 'exportExcel'])->name('karyawan.monitoring.excel');
 });
