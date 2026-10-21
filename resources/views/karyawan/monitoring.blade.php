@@ -1,10 +1,9 @@
 @extends('layouts.sidebar.karyawan')
+
 @section('title', 'Monitoring Barang - SIVERA')
 
 @section('content')
 <style>
-    /* Hapus reset * dan body karena sudah ditangani layout master */
-    
     .top-header {
         display: flex;
         justify-content: space-between;
@@ -211,7 +210,6 @@
     }
 </style>
 
-<!-- Pastikan layout utama/content wrapper dibungkus dengan baik -->
 <div class="top-header">
     <h1>Monitoring Barang</h1>
     <div class="header-right">
@@ -219,7 +217,6 @@
             <i class="fa-regular fa-calendar"></i>
             <span>{{ \Carbon\Carbon::now()->isoFormat('D MMM YYYY') }}</span>
         </div>
-        <!-- Panggil Notifikasi di sini agar konsisten dengan halaman lain -->
         @include('notifikasi')
     </div>
 </div>
@@ -288,7 +285,6 @@
                             <td>{{ $item->nama_barang }}</td>
                             <td>{{ $item->kategori ? $item->kategori->jenis_kategori : '-' }}</td>
                             <td>{{ $item->jumlah_unit }}</td>
-                            <!-- Memperbaiki typo tanSggal_masuk menjadi tanggal_masuk -->
                             <td>{{ \Carbon\Carbon::parse($item->tanggal_masuk)->format('d-m-Y') }}</td>
                         </tr>
                     @empty

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Karyawan;
 use App\Http\Controllers\Controller;
 use App\Models\Barang;
 use Illuminate\Http\Request;
-use Barryvdh\DomPDF\Facade\Pdf; // Import DomPDF
+use Barryvdh\DomPDF\Facade\Pdf; 
 
 class MonitoringController extends Controller
 {
