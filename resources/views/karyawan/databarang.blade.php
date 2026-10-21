@@ -180,11 +180,9 @@
     }
 
     .custom-table th {
-        background-color: #f8fafc;
-        color: #475569;
-        font-size: 11px;
-        font-weight: 600;
-        text-transform: uppercase;
+        background-color: #ebf8ff;
+        color: #000000;
+        font-size: 12px;
         padding: 15px 20px;
         letter-spacing: 0.5px;
         border-bottom: 1px solid #e2e8f0;
@@ -194,13 +192,13 @@
     .custom-table td {
         padding: 15px 20px;
         font-size: 13px;
-        color: #475569;
+        color: #000000;
         border-bottom: 1px solid #f1f5f9;
         white-space: nowrap;
     }
 
     .custom-table tbody tr:hover {
-        background-color: #f8fafc;
+        background-color: #ebf8ff;
     }
 
     .custom-table td:nth-child(2) {
@@ -406,7 +404,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="7" class="empty-data">Belum ada data barang inventaris.</td>
+                                <td colspan="7" class="empty-data">Data tidak ditemukan</td>
                             </tr>
                         @endforelse
                     </tbody>

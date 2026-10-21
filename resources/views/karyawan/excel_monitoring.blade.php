@@ -5,7 +5,7 @@
         </td>
     </tr>
     <tr>
-        <td colspan="7" style="font-size: 11px; text-align: center; border: none; color: #718096;">
+        <td colspan="7" style="font-size: 11px; text-align: center; border: none; color: #000000;">
             PT. Solusi Bangun Indonesia Tbk. Cilacap Plant 1
         </td>
     </tr>
@@ -22,13 +22,13 @@
     <tr><td colspan="7" style="border: none;"></td></tr> 
 
     <tr style="background-color: #ebf8ff;">
-        <th style="border: 1px solid #cbd5e0; color: #2b6cb0; font-weight: bold; text-align: center; padding: 8px;">NO</th>
-        <th style="border: 1px solid #cbd5e0; color: #2b6cb0; font-weight: bold; text-align: center; padding: 8px;">NO ASSET</th>
-        <th style="border: 1px solid #cbd5e0; color: #2b6cb0; font-weight: bold; text-align: center; padding: 8px;">NAMA BARANG</th>
-        <th style="border: 1px solid #cbd5e0; color: #2b6cb0; font-weight: bold; text-align: center; padding: 8px;">JENIS KATEGORI</th>
-        <th style="border: 1px solid #cbd5e0; color: #2b6cb0; font-weight: bold; text-align: center; padding: 8px;">TIPE</th>
-        <th style="border: 1px solid #cbd5e0; color: #2b6cb0; font-weight: bold; text-align: center; padding: 8px;">JUMLAH UNIT</th>
-        <th style="border: 1px solid #cbd5e0; color: #2b6cb0; font-weight: bold; text-align: center; padding: 8px;">TANGGAL MASUK</th>
+        <th style="border: 1px solid #cbd5e0; color: #000000; font-weight: bold; text-align: center; padding: 8px;">NO</th>
+        <th style="border: 1px solid #cbd5e0; color: #000000; font-weight: bold; text-align: center; padding: 8px;">NO ASSET</th>
+        <th style="border: 1px solid #cbd5e0; color: #000000; font-weight: bold; text-align: center; padding: 8px;">NAMA BARANG</th>
+        <th style="border: 1px solid #cbd5e0; color: #000000; font-weight: bold; text-align: center; padding: 8px;">JENIS KATEGORI</th>
+        <th style="border: 1px solid #cbd5e0; color: #000000; font-weight: bold; text-align: center; padding: 8px;">TIPE</th>
+        <th style="border: 1px solid #cbd5e0; color: #000000; font-weight: bold; text-align: center; padding: 8px;">JUMLAH UNIT</th>
+        <th style="border: 1px solid #cbd5e0; color: #000000; font-weight: bold; text-align: center; padding: 8px;">TANGGAL MASUK</th>
     </tr>
 
     <tbody>
@@ -45,7 +45,7 @@
         @empty
             <tr>
                 <td colspan="7" style="border: 1px solid #cbd5e0; text-align: center; padding: 15px; color: #a0aec0;">
-                    Tidak ada data barang yang sesuai dengan filter.
+                    Tidak ada data barang yang sesuai pencarian.
                 </td>
             </tr>
         @endforelse

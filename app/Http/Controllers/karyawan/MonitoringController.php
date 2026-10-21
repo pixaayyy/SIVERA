@@ -18,10 +18,22 @@ class MonitoringController extends Controller
         }
 
         if ($request->filled('bulan')) {
-            $query->whereMonth('tanggal_masuk', $request->bulan);
-        }
-
-        if ($request->filled('tahun')) {
+            $bulan = $request->bulan;
+            
+            if (strpos($bulan, '-') !== false) {
+                $parts = explode('-', $bulan);
+                $query->whereYear('tanggal_masuk', $parts[0])
+                      ->whereMonth('tanggal_masuk', $parts[1]);
+            } else {
+                $query->whereMonth('tanggal_masuk', $bulan);
+                
+                if ($request->filled('tahun')) {
+                    $query->whereYear('tanggal_masuk', $request->tahun);
+                } else {
+                    $query->whereYear('tanggal_masuk', date('Y'));
+                }
+            }
+        } elseif ($request->filled('tahun')) {
             $query->whereYear('tanggal_masuk', $request->tahun);
         }
 
@@ -38,8 +50,10 @@ class MonitoringController extends Controller
         }
 
         $barang = $query->orderBy('tanggal_masuk', 'desc')->get();
+        $tanggalTertua = Barang::min('tanggal_masuk');
+        $tahunTertua = $tanggalTertua ? date('Y', strtotime($tanggalTertua)) : date('Y');
 
-        return view('karyawan.monitoring', compact('barang'));
+        return view('karyawan.monitoring', compact('barang', 'tahunTertua'));
     }
 
     public function exportPdf(Request $request)
@@ -47,10 +61,20 @@ class MonitoringController extends Controller
         $query = Barang::with('kategori');
 
         if ($request->filled('bulan')) {
-            $query->whereMonth('tanggal_masuk', $request->bulan);
-        }
-
-        if ($request->filled('tahun')) {
+            $bulan = $request->bulan;
+            if (strpos($bulan, '-') !== false) {
+                $parts = explode('-', $bulan);
+                $query->whereYear('tanggal_masuk', $parts[0])
+                      ->whereMonth('tanggal_masuk', $parts[1]);
+            } else {
+                $query->whereMonth('tanggal_masuk', $bulan);
+                if ($request->filled('tahun')) {
+                    $query->whereYear('tanggal_masuk', $request->tahun);
+                } else {
+                    $query->whereYear('tanggal_masuk', date('Y'));
+                }
+            }
+        } elseif ($request->filled('tahun')) {
             $query->whereYear('tanggal_masuk', $request->tahun);
         }
 
@@ -68,7 +92,6 @@ class MonitoringController extends Controller
 
         $barang = $query->orderBy('tanggal_masuk', 'desc')->get();
 
-        // Load view khusus PDF dalam orientasi landscape
         $pdf = Pdf::loadView('karyawan.pdf_monitoring', compact('barang'))
                   ->setPaper('a4', 'landscape');
 
@@ -80,10 +103,20 @@ class MonitoringController extends Controller
         $query = Barang::with('kategori');
 
         if ($request->filled('bulan')) {
-            $query->whereMonth('tanggal_masuk', $request->bulan);
-        }
-
-        if ($request->filled('tahun')) {
+            $bulan = $request->bulan;
+            if (strpos($bulan, '-') !== false) {
+                $parts = explode('-', $bulan);
+                $query->whereYear('tanggal_masuk', $parts[0])
+                      ->whereMonth('tanggal_masuk', $parts[1]);
+            } else {
+                $query->whereMonth('tanggal_masuk', $bulan);
+                if ($request->filled('tahun')) {
+                    $query->whereYear('tanggal_masuk', $request->tahun);
+                } else {
+                    $query->whereYear('tanggal_masuk', date('Y'));
+                }
+            }
+        } elseif ($request->filled('tahun')) {
             $query->whereYear('tanggal_masuk', $request->tahun);
         }
 

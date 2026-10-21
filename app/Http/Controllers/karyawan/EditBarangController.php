@@ -30,8 +30,16 @@ class EditBarangController extends Controller
         ]);
 
         $barang = Barang::findOrFail($id);
-        $barang->update($request->all());
 
+        $barang->tanggal_masuk = $request->tanggal_masuk;
+        $barang->kategori_barang   = $request->id_kategori;
+        $barang->nama_barang   = $request->nama_barang;
+        $barang->tipe          = $request->tipe;
+        $barang->ex_user       = $request->ex_user;
+        $barang->nomor_asset   = $request->nomor_asset;
+        $barang->status_barang = $request->status_barang;
+        
+        $barang->save();
         return redirect()->route('karyawan.databarang')->with('success', 'Data barang berhasil diperbarui!');
     }
 

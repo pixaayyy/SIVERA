@@ -180,8 +180,8 @@
 
         .custom-table th {
             background-color: #ebf8ff;
-            color: #2b6cb0;
-            font-size: 14px;
+            color: #000000;
+            font-size: 13px;
             font-weight: 600;
             padding: 14px 10px;
         }
@@ -245,7 +245,7 @@
 
                         <select name="tahun" class="select-filter" onchange="this.form.submit()">
                             <option value="">Pilih Tahun</option>
-                            @for ($y = date('Y'); $y >= 2020; $y--)
+                            @for ($y = date('Y'); $y >= $tahunTertua; $y--)
                                 <option value="{{ $y }}" {{ request('tahun') == $y ? 'selected' : '' }}>
                                     {{ $y }}
                                 </option>

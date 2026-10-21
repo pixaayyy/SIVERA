@@ -224,8 +224,32 @@
             <p>Masukkan detail aset IT ke dalam inventaris gudang.</p>
         </div>
 
+        <!-- PERUBAHAN DI SINI: MENGGUNAKAN CSS ANIMATION -->
         @if(session('success'))
-            <div class="alert-success">{{ session('success') }}</div>
+            <div class="alert-success auto-hide-alert">{{ session('success') }}</div>
+            <style>
+                .auto-hide-alert {
+                    animation: fadeOutAlert 0.5s ease-out 1s forwards;
+                    overflow: hidden;
+                    transform-origin: top;
+                }
+                @keyframes fadeOutAlert {
+                    0% { 
+                        opacity: 1; 
+                        max-height: 100px; 
+                        margin-bottom: 20px; 
+                        padding: 10px; 
+                    }
+                    100% { 
+                        opacity: 0; 
+                        max-height: 0; 
+                        margin-bottom: 0; 
+                        padding: 0; 
+                        border: none; 
+                        pointer-events: none;
+                    }
+                }
+            </style>
         @endif
 
         @if ($errors->any())
@@ -372,21 +396,5 @@
             closeKategoriModal();
         }
     }
-
-    @if(session('success'))
-    document.addEventListener("DOMContentLoaded", function() {
-        var alertBox = document.querySelector('.alert-success');
-            if (alertBox) {
-            setTimeout(function() {
-                alertBox.style.transition = 'opacity 0.5s ease';
-                alertBox.style.opacity = '0';
-                
-                setTimeout(function() {
-                    alertBox.style.display = 'none';
-                }, 500);
-            }, 1000); 
-        }
-    });
-    @endif
 </script>
 @endsection

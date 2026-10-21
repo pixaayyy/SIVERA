@@ -38,8 +38,10 @@ class MonitoringController extends Controller
         }
 
         $barang = $query->orderBy('tanggal_masuk', 'desc')->get();
+        $tanggalTertua = Barang::min('tanggal_masuk');
+        $tahunTertua = $tanggalTertua ? date('Y', strtotime($tanggalTertua)) : date('Y');
 
-        return view('admin.monitoring', compact('barang'));
+        return view('admin.monitoring', compact('barang','tahunTertua'));
     }
 
     public function exportPdf(Request $request)

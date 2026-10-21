@@ -24,7 +24,7 @@ class DashboardController extends Controller
                 $persentase = ($jumlah / $totalBarang) * 100;
                 
                 $kategoriStats->push((object)[
-                    'nama_kategori' => $kategori->nama_kategori,
+                    'nama_kategori' => $kategori->jenis_kategori, 
                     'persentase' => round($persentase, 1)
                 ]);
             }

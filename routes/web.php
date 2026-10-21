@@ -25,6 +25,7 @@ Route::get('/', function () {
     return redirect()->route('login');
 }); 
 
+// Autentifikasi
 Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('login');
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])->name('login.post');
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
@@ -38,6 +39,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/notifikasi/read-all', [NotifikasiController::class, 'markAllAsRead'])->name('notifikasi.readAll');
 });
 
+// Role karyawan
 Route::middleware(['auth'])->prefix('karyawan')->name('karyawan.')->group(function () {
     Route::get('/dashboard', [KaryawanDashboard::class, 'index'])->name('dashboard');
     Route::get('/tambah-barang', [KaryawanTambahBarang::class, 'index'])->name('tambahbarang');
@@ -51,6 +53,7 @@ Route::middleware(['auth'])->prefix('karyawan')->name('karyawan.')->group(functi
     Route::get('/monitoring/export-excel', [KaryawanMonitoring::class, 'exportExcel'])->name('monitoring.excel');
 });
 
+//Role admin
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminDashboard::class, 'index'])->name('dashboard');
     Route::get('/tambah-barang', [AdminTambahBarang::class, 'index'])->name('tambahbarang');

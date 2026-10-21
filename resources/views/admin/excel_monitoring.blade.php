@@ -45,7 +45,7 @@
         @empty
             <tr>
                 <td colspan="7" style="border: 1px solid #cbd5e0; text-align: center; padding: 15px; color: #a0aec0;">
-                    Tidak ada data barang yang sesuai dengan filter.
+                    Tidak ada data barang yang sesuai pencarian.
                 </td>
             </tr>
         @endforelse

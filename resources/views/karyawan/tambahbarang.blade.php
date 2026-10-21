@@ -127,7 +127,7 @@
         border-radius: 6px; 
         margin-bottom: 20px; 
         font-size: 13px; 
-        }
+    }
 </style>
 
 <div class="main-content">
@@ -146,7 +146,19 @@
         </div>
 
         @if(session('success'))
-            <div class="alert-success">{{ session('success') }}</div>
+            <div class="alert-success" id="success-alert">{{ session('success') }}</div>
+            <script>
+                setTimeout(function() {
+                    var alertBox = document.getElementById('success-alert');
+                    if (alertBox) {
+                        alertBox.style.transition = 'opacity 0.5s ease';
+                        alertBox.style.opacity = '0';
+                        setTimeout(function() {
+                            alertBox.remove(); // Menghapus elemen dari HTML
+                        }, 500); // Tunggu animasi pudar selesai
+                    }
+                }, 1000); // Tampil 1 detik
+            </script>
         @endif
 
         @if ($errors->any())
@@ -225,4 +237,20 @@
         </form>
     </div>
 </div>
+<script>
+    function openKategoriModal() {
+        document.getElementById('kategoriModal').classList.add('active');
+    }
+
+    function closeKategoriModal() {
+        document.getElementById('kategoriModal').classList.remove('active');
+    }
+
+    window.onclick = function(event) {
+        var modal = document.getElementById('kategoriModal');
+        if (event.target == modal) {
+            closeKategoriModal();
+        }
+    }
+</script>
 @endsection

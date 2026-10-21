@@ -12,7 +12,7 @@
             }
 
             .header-kop {
-                border-bottom: 2px solid #2b6cb0;
+                border-bottom: 2px solid #000000;
                 padding-bottom: 12px;
                 margin-bottom: 20px;
             }
@@ -32,7 +32,7 @@
             .header-title-h2 {
                 margin: 0;
                 font-size: 18px;
-                color: #1a365d;
+                color: #000000;
                 text-transform: uppercase;
                 font-weight: bold;
             }
@@ -40,7 +40,7 @@
             .header-title-h3 {
                 margin: 4px 0 0 0;
                 font-size: 14px;
-                color: #2b6cb0;
+                color: #000000;
                 font-weight: normal;
             }
 
@@ -70,7 +70,7 @@
 
             table.data-table th {
                 background-color: #ebf8ff;
-                color: #2b6cb0;
+                color: #000000;
                 border: 1px solid #cbd5e0;
                 padding: 8px 10px;
                 font-size: 11px;

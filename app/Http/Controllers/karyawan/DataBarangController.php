@@ -19,7 +19,7 @@ class DataBarangController extends Controller
                 $q->where('nama_barang', 'like', "%{$search}%")
                   ->orWhere('tipe', 'like', "%{$search}%")
                   ->orWhere('nomor_asset', 'like', "%{$search}%")
-                  ->orWhere('ex_user', 'like', "%{$search}%"); // Tambahkan baris ini
+                  ->orWhere('ex_user', 'like', "%{$search}%"); 
             });
         }
 
@@ -29,6 +29,10 @@ class DataBarangController extends Controller
 
         if ($request->has('status') && $request->status != '') {
             $query->where('status_barang', $request->status);
+        }
+
+        if ($request->has('tanggal') && $request->tanggal != '') {
+            $query->whereDate('tanggal_masuk', $request->tanggal);
         }
 
         $barang = $query->get();

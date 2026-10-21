@@ -406,7 +406,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="7" class="empty-data">Belum ada data barang inventaris.</td>
+                                <td colspan="7" class="empty-data">Data tidak ditemukan</td>
                             </tr>
                         @endforelse
                     </tbody>

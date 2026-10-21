@@ -43,4 +43,12 @@ class EditBarangController extends Controller
 
         return redirect()->route('admin.databarang')->with('success', 'Data barang berhasil diperbarui!');
     }
+
+    public function destroy($id)
+    {
+        $barang = Barang::findOrFail($id);
+        $barang->delete();
+
+        return redirect()->route('admin.databarang')->with('success', 'Data barang berhasil dihapus!');
+    }
 }

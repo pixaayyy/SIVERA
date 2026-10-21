@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Barang; 
 use App\Models\Kategori;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -18,15 +17,18 @@ class DashboardController extends Controller
 
         $barangRusakMasuk = Barang::where('status_barang', 'Rusak')->orderBy('tanggal_masuk', 'desc')->limit(5)->get();
 
-       $kategoriStats = DB::table('barang')
-            ->join('kategori', 'barang.kategori_barang', '=', 'kategori.id_kategori')
-            ->select('kategori.jenis_kategori as nama_kategori', DB::raw('count(*) as total'))
-            ->groupBy('kategori.jenis_kategori')
-            ->get()
-            ->map(function ($item) use ($totalBarang) {
-                $item->persentase = $totalBarang > 0 ? round(($item->total / $totalBarang) * 100) : 0;
-                return $item;
-            });
+        $kategoriData = Kategori::withCount('barang')->get();
+        $kategoriStats = collect();
+
+        foreach ($kategoriData as $kategori) {
+            $jumlah = $kategori->barang_count;
+            $persentase = $totalBarang > 0 ? ($jumlah / $totalBarang) * 100 : 0;
+            
+            $kategoriStats->push((object)[
+                'nama_kategori' => $kategori->jenis_kategori,
+                'persentase' => round($persentase, 1)
+            ]);
+        }
 
         return view('karyawan.dashboard', compact(
             'totalBarang', 
@@ -37,4 +39,3 @@ class DashboardController extends Controller
         ));
     }
 }
-?>

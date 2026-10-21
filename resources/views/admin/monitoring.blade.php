@@ -225,7 +225,7 @@
 
                     <select name="tahun" class="select-filter" onchange="this.form.submit()">
                         <option value="">Pilih Tahun</option>
-                        @for ($y = date('Y'); $y >= 2020; $y--)
+                        @for ($y = date('Y'); $y >= $tahunTertua; $y--)
                             <option value="{{ $y }}" {{ request('tahun') == $y ? 'selected' : '' }}>
                                 {{ $y }}
                             </option>
