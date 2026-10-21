@@ -1,17 +1,17 @@
 @extends('layouts.sidebar.karyawan')
+
 @section('title', 'Monitoring Barang - SIVERA')
 
 @section('content')
-    <style>
-        
-        .top-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 40px;
-            background-color: #ffffff;
-            border-bottom: 1px solid #e2e8f0;
-        }
+<style>
+    .top-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+        background-color: #ffffff;
+        border-bottom: 1px solid #e2e8f0;
+    }
 
         .top-header h1 {
             font-size: 24px;
