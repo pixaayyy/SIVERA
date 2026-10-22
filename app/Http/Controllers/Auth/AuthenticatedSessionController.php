@@ -28,15 +28,19 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        $user = Auth::user();
+        // Ubah text role dari database menjadi huruf kecil semua agar aman dari typo huruf besar/kecil
+        $role = strtolower($request->user()->role);
 
-        if ($user->role === 'admin') {
-            return redirect()->intended(route('admin.dashboard', absolute: false));
+        // Hapus fungsi ->intended() dan gunakan redirect biasa
+        if ($role === 'admin') {
+            return redirect('/admin/dashboard'); 
+        } elseif ($role === 'karyawan') {
+            return redirect('/karyawan/dashboard');
         }
 
-        return redirect()->intended(route('karyawan.dashboard', absolute: false));
+        // Jika tidak ada role
+        return redirect('/');
     }
-
     /**
      * Destroy an authenticated session.
      */
