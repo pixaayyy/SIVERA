@@ -136,6 +136,7 @@
             <a href="{{ route('admin.databarang') }}" class="menu-item {{ request()->routeIs('admin.databarang') ? 'active' : '' }}" class="menu-item" class="menu-item">Data Barang</a>
             <a href="{{ route('admin.datakaryawan') }}" class="menu-item {{ request()->routeIs('admin.datakaryawan') ? 'active' : '' }}" class="menu-item" class="menu-item" class="menu-item">Data Karyawan</a>
             <a href="{{ route('admin.monitoring') }}" class="menu-item {{ request()->routeIs('admin.monitoring') ? 'active' : '' }}" class="menu-item" class="menu-item" class="menu-item" class="menu-item">Monitoring Barang</a>
+            <a href="{{ route('admin.backup') }}" class="menu-item {{ request()->routeIs('admin.backup') ? 'active' : '' }}" class="menu-item" class="menu-item" class="menu-item" class="menu-item">Backup</a>
         </div>
 
         <div class="sidebar-profile">
