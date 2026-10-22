@@ -122,7 +122,7 @@
         </div>
 
         <div style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
-            <h3 style="margin: 0 0 20px 0; color: #2b5c7a; font-size: 16px;"><i class="fa-solid fa-warehouse"></i> Rekap Barang Masuk Hari Ini Per Kategori</h3>
+            <h3 style="margin: 0 0 20px 0; color: #2b5c7a; font-size: 16px;"><i class="fa-solid fa-warehouse"></i> Barang Masuk Hari Ini </h3>
             
             <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
                 <thead>

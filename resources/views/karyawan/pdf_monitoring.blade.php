@@ -111,10 +111,6 @@
         <div class="header-kop">
             <table class="header-table">
                 <tr>
-                    <td style="width: 10%; text-align: left;">
-                        <img src="{{ public_path('images/SBI.png') }}" alt="Logo SBI" style="max-height: 35px; width: auto;">
-                    </td>
-                    
                     <td style="width: 65%; text-align: center;">
                         <h2 class="header-title-h2">Data Barang Inventaris Gudang Departemen IT</h2>
                         <h3 class="header-title-h3">PT. Solusi Bangun Indonesia Tbk. Cilacap Plant 1</h3>
