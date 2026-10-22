@@ -41,7 +41,6 @@ Route::middleware(['auth'])->group(function () {
 });
 
 // Role karyawan
-// Route::middleware(['auth'])->prefix('karyawan')->name('karyawan.')->group(function () {
 Route::middleware(['auth', 'role:Karyawan'])->prefix('karyawan')->name('karyawan.')->group(function () {
     Route::get('/dashboard', [KaryawanDashboard::class, 'index'])->name('dashboard');
     Route::get('/tambah-barang', [KaryawanTambahBarang::class, 'index'])->name('tambahbarang');
@@ -56,7 +55,6 @@ Route::middleware(['auth', 'role:Karyawan'])->prefix('karyawan')->name('karyawan
 });
 
 //Role admin
-// Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
 Route::middleware(['auth', 'role:Admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminDashboard::class, 'index'])->name('dashboard');
     Route::get('/tambah-barang', [AdminTambahBarang::class, 'index'])->name('tambahbarang');

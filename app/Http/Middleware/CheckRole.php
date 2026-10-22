@@ -15,7 +15,6 @@ class CheckRole
             return redirect('/login');
         }
 
-        // Ubah role dari database dan role dari URL menjadi huruf kecil semua
         $userRole = strtolower(Auth::user()->role);
         $targetRole = strtolower($role);
 
