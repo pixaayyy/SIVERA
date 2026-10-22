@@ -20,6 +20,7 @@ use App\Http\Controllers\Admin\DataKaryawanController as AdminDataKaryawan;
 use App\Http\Controllers\Admin\TambahKaryawanController as AdminTambahKaryawan;
 use App\Http\Controllers\Admin\EditKaryawanController;
 use App\Http\Controllers\Admin\MonitoringController as AdminMonitoring;
+use App\Http\Controllers\Admin\BackupController;
 
 Route::get('/', function () {
     return redirect()->route('login');
@@ -73,5 +74,7 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::get('/monitoring', [AdminMonitoring::class, 'index'])->name('monitoring');
     Route::get('/monitoring/export-pdf', [AdminMonitoring::class, 'exportPdf'])->name('monitoring.pdf');
     Route::get('/monitoring/export-excel', [AdminMonitoring::class, 'exportExcel'])->name('monitoring.excel');
-
+    Route::get('/backup', [BackupController::class, 'index'])->name('backup');
+    Route::get('/backup/database', [BackupController::class, 'backupDatabase'])->name('backup.database');
+    Route::get('/backup/source', [BackupController::class, 'backupSourceCode'])->name('backup.source');
 });
