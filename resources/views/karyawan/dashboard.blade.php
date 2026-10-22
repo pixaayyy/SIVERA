@@ -1,5 +1,7 @@
-@extends('layouts.sidebar.karyawan')
+@extends('layouts.sidebar.Karyawan')
+
 @section('title', 'Dashboard Inventaris')
+
 @section('content')
 <style>
     .topbar {
@@ -29,23 +31,6 @@
         font-size: 12px; 
         color: #555; 
     }
-    .notification {
-        font-size: 20px;
-        color: #888;
-        position: relative;
-        cursor: pointer;
-    }
-    .notification::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 8px;
-        height: 8px;
-        background: red;
-        border-radius: 50%;
-    }
-
     .dashboard-body {
         padding: 30px;
         background-color: #f4f7f6;
@@ -59,42 +44,53 @@
         <div class="date-badge">
             <i class="fa-regular fa-calendar"></i> {{ \Carbon\Carbon::now()->translatedFormat('l, d M Y') }}
         </div>
-        @include('notifikasi')
+        @includeIf('notifikasi') 
     </div>
 </div>
 
 <div class="dashboard-body">    
-    <div style="display: flex; gap: 20px; margin-bottom: 30px;">
-        <div style="flex: 1; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); display: flex; justify-content: space-between; align-items: center;">
+    <div style="display: flex; gap: 15px; margin-bottom: 30px;">
+        <div style="flex: 1; background: white; padding: 18px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); display: flex; justify-content: space-between; align-items: center;">
             <div>
-                <h4 style="margin: 0 0 10px 0; color: #888; font-weight: 500;">Total Barang</h4>
-                <h2 style="margin: 0; color: #38b6ff; font-size: 32px;">{{ $totalBarang ?? 0 }}</h2>
+                <h4 style="margin: 0 0 8px 0; color: #888; font-weight: 500; font-size: 13px;">Total Barang</h4>
+                <h2 style="margin: 0; color: #38b6ff; font-size: 26px;">{{ $totalBarang ?? 0 }}</h2>
                 <span style="font-size: 10px; color: #aaa;">Semua aset tercatat</span>
             </div>
-            <div style="background: #e6f5ff; padding: 15px; border-radius: 10px;">
-                <i class="fa-solid fa-bag-shopping" style="font-size: 24px; color: #38b6ff;"></i>
+            <div style="background: #e6f5ff; padding: 12px; border-radius: 8px;">
+                <i class="fa-solid fa-bag-shopping" style="font-size: 20px; color: #38b6ff;"></i>
             </div>
         </div>
 
-        <div style="flex: 1; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); display: flex; justify-content: space-between; align-items: center;">
+        <div style="flex: 1; background: white; padding: 18px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); display: flex; justify-content: space-between; align-items: center;">
             <div>
-                <h4 style="margin: 0 0 10px 0; color: #888; font-weight: 500;">Barang Rusak</h4>
-                <h2 style="margin: 0; color: #dc3545; font-size: 32px;">{{ $barangRusak ?? 0 }}</h2>
-                <span style="font-size: 10px; color: #aaa;">Barang tidak dapat digunakan</span>
+                <h4 style="margin: 0 0 8px 0; color: #888; font-weight: 500; font-size: 13px;">Barang Ready</h4>
+                <h2 style="margin: 0; color: #38a169; font-size: 26px;">{{ $barangReady ?? 0 }}</h2>
+                <span style="font-size: 10px; color: #aaa;">Siap digunakan</span>
             </div>
-            <div style="background: #ffebeb; padding: 15px; border-radius: 10px;">
-                <i class="fa-solid fa-circle-exclamation" style="font-size: 24px; color: #dc3545;"></i>
+            <div style="background: #f0fff4; padding: 12px; border-radius: 8px;">
+                <i class="fa-solid fa-check-circle" style="font-size: 20px; color: #38a169;"></i>
             </div>
         </div>
 
-        <div style="flex: 1; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); display: flex; justify-content: space-between; align-items: center;">
+        <div style="flex: 1; background: white; padding: 18px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); display: flex; justify-content: space-between; align-items: center;">
             <div>
-                <h4 style="margin: 0 0 10px 0; color: #888; font-weight: 500;">Barang Ready</h4>
-                <h2 style="margin: 0; color: #28a745; font-size: 32px;">{{ $barangReady ?? 0 }}</h2>
-                <span style="font-size: 10px; color: #aaa;">Barang siap digunakan</span>
+                <h4 style="margin: 0 0 8px 0; color: #888; font-weight: 500; font-size: 13px;">Barang Rusak</h4>
+                <h2 style="margin: 0; color: #e53e3e; font-size: 26px;">{{ $barangRusak ?? 0 }}</h2>
+                <span style="font-size: 10px; color: #aaa;">Tidak dapat digunakan</span>
             </div>
-            <div style="background: #ebf9ee; padding: 15px; border-radius: 10px;">
-                <i class="fa-solid fa-check-circle" style="font-size: 24px; color: #28a745;"></i>
+            <div style="background: #fff5f5; padding: 12px; border-radius: 8px;">
+                <i class="fa-solid fa-circle-exclamation" style="font-size: 20px; color: #e53e3e;"></i>
+            </div>
+        </div>
+
+        <div style="flex: 1; background: white; padding: 18px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <h4 style="margin: 0 0 8px 0; color: #555; font-weight: 500; font-size: 13px;">Total Karyawan</h4>
+                <h2 style="margin: 0; color: #d4a338; font-size: 26px;">{{ $totalKaryawan ?? 0 }}</h2>
+                <span style="font-size: 10px; color: #aaa;">Departemen IT</span>
+            </div>
+            <div style="background: #f8f6d6; padding: 12px; border-radius: 8px;">
+                <i class="fa-solid fa-user" style="font-size: 20px; color: #d4a338;"></i>
             </div>
         </div>
     </div>
@@ -105,13 +101,19 @@
             <h3 style="margin: 0 0 20px 0; color: #2b5c7a; font-size: 16px;"><i class="fa-solid fa-table-cells"></i> Kategori Barang</h3>
             
             @forelse($kategoriStats ?? [] as $kategori)
-            <div style="margin-bottom: 20px;">
-                <div style="display: flex; justify-content: space-between; font-size: 13px; color: #555; margin-bottom: 8px; font-weight: 500;">
-                    <span>{{ $kategori->nama_kategori }}</span>
-                    <span>{{ $kategori->persentase }}%</span>
+            <div style="margin-bottom: 22px; padding-bottom: 12px; border-bottom: 1px solid #f0f0f0;">
+                <div style="display: flex; justify-content: space-between; font-size: 13px; color: #333; margin-bottom: 6px; font-weight: 600;">
+                    <span>{{ $kategori->nama_kategori }} (Total: {{ $kategori->total_unit }} Unit)</span>
                 </div>
-                <div style="background: #f0f0f0; height: 12px; border-radius: 10px; width: 100%; overflow: hidden;">
-                    <div style="background: #2b5c7a; height: 100%; width: {{ $kategori->persentase }}%; border-radius: 10px;"></div>
+                
+                <div style="background: #edf2f7; height: 10px; border-radius: 10px; width: 100%; overflow: hidden; display: flex; margin-bottom: 8px;">
+                    <div style="background: #48bb78; width: {{ $kategori->persentase_ready }}%; height: 100%;" title="Ready: {{ $kategori->persentase_ready }}%"></div>
+                    <div style="background: #fc8181; width: {{ $kategori->persentase_rusak }}%; height: 100%;" title="Rusak: {{ $kategori->persentase_rusak }}%"></div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; font-size: 11px;">
+                    <span style="color: #38a169; font-weight: 600;">Ready: {{ $kategori->total_ready }} Unit ({{ $kategori->persentase_ready }}%)</span>
+                    <span style="color: #e53e3e; font-weight: 600;">Rusak: {{ $kategori->total_rusak }} Unit ({{ $kategori->persentase_rusak }}%)</span>
                 </div>
             </div>
             @empty
@@ -120,41 +122,28 @@
         </div>
 
         <div style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
-            <h3 style="margin: 0 0 20px 0; color: #2b5c7a; font-size: 16px;"><i class="fa-solid fa-warehouse"></i> Barang Rusak Masuk</h3>
+            <h3 style="margin: 0 0 20px 0; color: #2b5c7a; font-size: 16px;"><i class="fa-solid fa-warehouse"></i> Rekap Barang Masuk Hari Ini Per Kategori</h3>
             
             <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
                 <thead>
                     <tr style="background: #f8fafc; text-align: left;">
-                        <th style="padding: 12px 15px; border-bottom: 2px solid #edf2f7; color: #555; font-weight: 600;">Tanggal</th>
-                        <th style="padding: 12px 15px; border-bottom: 2px solid #edf2f7; color: #555; font-weight: 600;">Barang & Tipe</th>
-                        <th style="padding: 12px 15px; border-bottom: 2px solid #edf2f7; color: #555; font-weight: 600;">Ex User</th>
-                        <th style="padding: 12px 15px; border-bottom: 2px solid #edf2f7; color: #555; font-weight: 600;">Status</th>
-                        <th style="padding: 12px 15px; border-bottom: 2px solid #edf2f7; color: #555; font-weight: 600;">No Asset</th>
+                        <th style="padding: 12px 15px; border-bottom: 2px solid #edf2f7; color: #555; font-weight: 600;">Kategori Barang</th>
+                        <th style="padding: 12px 15px; border-bottom: 2px solid #edf2f7; color: #555; font-weight: 600; text-align: center;">Total Unit Masuk Hari Ini</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse($barangRusakMasuk ?? [] as $barang)
+                    @forelse($rekapBarangMasuk ?? [] as $item)
                     <tr>
-                        <td style="padding: 12px 15px; border-bottom: 1px solid #edf2f7; color: #666;">
-                            {{ \Carbon\Carbon::parse($barang->tanggal_masuk)->format('d-m-Y') }}
+                        <td style="padding: 12px 15px; border-bottom: 1px solid #edf2f7; color: #333; font-weight: 600;">
+                            {{ $item->kategori ? $item->kategori->jenis_kategori : '-' }}
                         </td>
-                        <td style="padding: 12px 15px; border-bottom: 1px solid #edf2f7;">
-                            <strong style="color: #333;">{{ $barang->nama_barang }}</strong><br>
-                            <span style="color: #888; font-size: 11px;">{{ $barang->tipe }}</span>
-                        </td>
-                        <td style="padding: 12px 15px; border-bottom: 1px solid #edf2f7; color: #666;">
-                            {{ $barang->ex_user ?? '-' }}
-                        </td>
-                        <td style="padding: 12px 15px; border-bottom: 1px solid #edf2f7; color: #dc3545; font-weight: 500;">
-                            {{ $barang->status_barang }}
-                        </td>
-                        <td style="padding: 12px 15px; border-bottom: 1px solid #edf2f7; color: #666;">
-                            IT-{{ str_pad($barang->nomor_asset, 3, '0', STR_PAD_LEFT) }}
+                        <td style="padding: 12px 15px; border-bottom: 1px solid #edf2f7; color: #2b5c7a; font-weight: bold; text-align: center;">
+                            {{ $item->total_unit }} Unit
                         </td>
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="5" style="padding: 20px; text-align: center; color: #888;">Belum ada data barang rusak masuk.</td>
+                        <td colspan="2" style="padding: 20px; text-align: center; color: #888;">Belum ada data barang masuk hari ini.</td>
                     </tr>
                     @endforelse
                 </tbody>
