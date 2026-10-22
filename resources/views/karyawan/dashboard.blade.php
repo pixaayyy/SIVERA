@@ -95,30 +95,32 @@
         </div>
     </div>
 
-    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 20px;">
+    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 20px; align-items: start;">
         
         <div style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
             <h3 style="margin: 0 0 20px 0; color: #2b5c7a; font-size: 16px;"><i class="fa-solid fa-table-cells"></i> Kategori Barang</h3>
             
-            @forelse($kategoriStats ?? [] as $kategori)
-            <div style="margin-bottom: 22px; padding-bottom: 12px; border-bottom: 1px solid #f0f0f0;">
-                <div style="display: flex; justify-content: space-between; font-size: 13px; color: #333; margin-bottom: 6px; font-weight: 600;">
-                    <span>{{ $kategori->nama_kategori }} (Total: {{ $kategori->total_unit }} Unit)</span>
-                </div>
-                
-                <div style="background: #edf2f7; height: 10px; border-radius: 10px; width: 100%; overflow: hidden; display: flex; margin-bottom: 8px;">
-                    <div style="background: #48bb78; width: {{ $kategori->persentase_ready }}%; height: 100%;" title="Ready: {{ $kategori->persentase_ready }}%"></div>
-                    <div style="background: #fc8181; width: {{ $kategori->persentase_rusak }}%; height: 100%;" title="Rusak: {{ $kategori->persentase_rusak }}%"></div>
-                </div>
+            <div style="max-height: 380px; overflow-y: auto; padding-right: 5px;">
+                @forelse($kategoriStats ?? [] as $kategori)
+                <div style="margin-bottom: 22px; padding-bottom: 12px; border-bottom: 1px solid #f0f0f0;">
+                    <div style="display: flex; justify-content: space-between; font-size: 13px; color: #333; margin-bottom: 6px; font-weight: 600;">
+                        <span>{{ $kategori->nama_kategori }} (Total: {{ $kategori->total_unit }} Unit)</span>
+                    </div>
+                    
+                    <div style="background: #edf2f7; height: 10px; border-radius: 10px; width: 100%; overflow: hidden; display: flex; margin-bottom: 8px;">
+                        <div style="background: #48bb78; width: {{ $kategori->persentase_ready }}%; height: 100%;" title="Ready: {{ $kategori->persentase_ready }}%"></div>
+                        <div style="background: #fc8181; width: {{ $kategori->persentase_rusak }}%; height: 100%;" title="Rusak: {{ $kategori->persentase_rusak }}%"></div>
+                    </div>
 
-                <div style="display: flex; justify-content: space-between; font-size: 11px;">
-                    <span style="color: #38a169; font-weight: 600;">Ready: {{ $kategori->total_ready }} Unit ({{ $kategori->persentase_ready }}%)</span>
-                    <span style="color: #e53e3e; font-weight: 600;">Rusak: {{ $kategori->total_rusak }} Unit ({{ $kategori->persentase_rusak }}%)</span>
+                    <div style="display: flex; justify-content: space-between; font-size: 11px;">
+                        <span style="color: #38a169; font-weight: 600;">Ready: {{ $kategori->total_ready }} Unit ({{ $kategori->persentase_ready }}%)</span>
+                        <span style="color: #e53e3e; font-weight: 600;">Rusak: {{ $kategori->total_rusak }} Unit ({{ $kategori->persentase_rusak }}%)</span>
+                    </div>
                 </div>
+                @empty
+                <p style="font-size: 13px; color: #888; text-align: center;">Belum ada data kategori barang.</p>
+                @endforelse
             </div>
-            @empty
-            <p style="font-size: 13px; color: #888; text-align: center;">Belum ada data kategori barang.</p>
-            @endforelse
         </div>
 
         <div style="background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
