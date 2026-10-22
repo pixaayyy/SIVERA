@@ -132,7 +132,7 @@
                     <i class="fa-solid fa-database"></i>
                 </div>
                 <h3>Backup Database</h3>
-                <p>Unduh seluruh data dari tabel database dalam format SQL. Sangat disarankan untuk rutin melakukan backup data ini.</p>
+                <p>Unduh seluruh data dari tabel database dalam format SQL.</p>
                 <a href="{{ route('admin.backup.database') }}" class="btn-download btn-db" onclick="showLoading(this)">
                     <i class="fa-solid fa-cloud-arrow-down"></i> Unduh Database
                 </a>
@@ -143,7 +143,7 @@
                     <i class="fa-solid fa-code"></i>
                 </div>
                 <h3>Backup Source Code</h3>
-                <p>Unduh struktur folder aplikasi, views, controller, dan konfigurasi ke dalam format .ZIP (Tanpa folder vendor).</p>
+                <p>Unduh struktur folder aplikasi, views, controller, dan konfigurasi ke dalam format .ZIP.</p>
                 <a href="{{ route('admin.backup.source') }}" class="btn-download btn-code" onclick="showLoading(this)">
                     <i class="fa-solid fa-file-zipper"></i> Unduh Source Code
                 </a>
