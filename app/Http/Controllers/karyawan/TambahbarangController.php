@@ -16,6 +16,7 @@ class TambahbarangController extends Controller
         $kategori = DB::table('kategori')->get();
         return view('karyawan.tambahbarang', compact('kategori'));
     }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -25,9 +26,11 @@ class TambahbarangController extends Controller
             'tipe'            => 'required|string|max:200', 
             'status_barang'   => 'required|in:Ready,Rusak', 
             'jumlah_unit'     => 'required|integer|min:1', 
-            'nomor_asset'     => 'required|integer', 
+            'nomor_asset'     => 'required|string|max:50|unique:barang,nomor_asset', 
             'ex_user'         => 'nullable|string|max:200',
             'departemen'      => 'nullable|string|max:200', 
+        ], [
+            'nomor_asset.unique' => 'Nomor asset ini sudah terdaftar. Silakan gunakan nomor aseet lain.'
         ]);
 
         DB::table('barang')->insert([
@@ -45,7 +48,7 @@ class TambahbarangController extends Controller
         $users = User::where('id','!=', auth()->id())->get();
         $dataNotif = [
             'title' => 'Barang baru',
-            'message' => auth()->user()->name . 'menambahkan barang baru:' .$request->nama_barang,
+            'message' => auth()->user()->name . ' menambahkan barang baru: ' . $request->nama_barang,
             'url'=> route('karyawan.tambahbarang')
         ];
         Notification::send($users, new UpdateInventarisNotification($dataNotif));
