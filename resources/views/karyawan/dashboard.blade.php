@@ -83,16 +83,6 @@
             </div>
         </div>
 
-        <div style="flex: 1; background: white; padding: 18px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); display: flex; justify-content: space-between; align-items: center;">
-            <div>
-                <h4 style="margin: 0 0 8px 0; color: #555; font-weight: 500; font-size: 13px;">Total Karyawan</h4>
-                <h2 style="margin: 0; color: #d4a338; font-size: 26px;">{{ $totalKaryawan ?? 0 }}</h2>
-                <span style="font-size: 10px; color: #aaa;">Departemen IT</span>
-            </div>
-            <div style="background: #f8f6d6; padding: 12px; border-radius: 8px;">
-                <i class="fa-solid fa-user" style="font-size: 20px; color: #d4a338;"></i>
-            </div>
-        </div>
     </div>
 
     <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 20px; align-items: start;">

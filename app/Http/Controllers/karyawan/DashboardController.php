@@ -17,7 +17,6 @@ class DashboardController extends Controller
         $totalBarang = Barang::sum('jumlah_unit');
         $barangReady = Barang::where('status_barang', 'Ready')->sum('jumlah_unit'); 
         $barangRusak = Barang::where('status_barang', 'Rusak')->sum('jumlah_unit'); 
-        $totalKaryawan = User::count(); 
         
         $kategoriData = Kategori::with('barang')->get();
         $kategoriStats = collect();
@@ -51,8 +50,7 @@ class DashboardController extends Controller
         return view('karyawan.dashboard', compact(
             'totalBarang', 
             'barangReady', 
-            'barangRusak', 
-            'totalKaryawan', 
+            'barangRusak',  
             'kategoriStats', 
             'rekapBarangMasuk'
         ));

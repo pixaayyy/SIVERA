@@ -40,7 +40,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/notifikasi/read-all', [NotifikasiController::class, 'markAllAsRead'])->name('notifikasi.readAll');
 });
 
-// Role karyawan
 Route::middleware(['auth', 'role:Karyawan'])->prefix('karyawan')->name('karyawan.')->group(function () {
     Route::get('/dashboard', [KaryawanDashboard::class, 'index'])->name('dashboard');
     Route::get('/tambah-barang', [KaryawanTambahBarang::class, 'index'])->name('tambahbarang');
@@ -54,7 +53,6 @@ Route::middleware(['auth', 'role:Karyawan'])->prefix('karyawan')->name('karyawan
     Route::get('/monitoring/export-excel', [KaryawanMonitoring::class, 'exportExcel'])->name('monitoring.excel');
 });
 
-//Role admin
 Route::middleware(['auth', 'role:Admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminDashboard::class, 'index'])->name('dashboard');
     Route::get('/tambah-barang', [AdminTambahBarang::class, 'index'])->name('tambahbarang');
