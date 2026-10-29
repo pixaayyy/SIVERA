@@ -104,12 +104,17 @@
 
             <div class="form-group">
                 <label>Tipe</label>
-                <input type="text" name="tipe" class="form-control" value="{{ $barang->tipe }}">
+                <input type="text" name="tipe" class="form-control" value="{{ $barang->tipe }}" required>
             </div>
 
             <div class="form-group">
                 <label>Ex User</label>
                 <input type="text" name="ex_user" class="form-control" value="{{ $barang->ex_user }}">
+            </div>
+
+            <div class="form-group">
+                <label>Departemen</label>
+                <input type="text" name="departemen" class="form-control" value="{{ $barang->departemen }}">
             </div>
 
             <div class="form-group">

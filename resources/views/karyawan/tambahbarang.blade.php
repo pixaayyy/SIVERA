@@ -193,17 +193,17 @@
 
                 <div class="form-group">
                     <label>Nama Barang <span class="required">*</span></label>
-                    <input type="text" name="nama_barang" class="form-control" placeholder="Contoh: Laptop" value="{{ old('nama_barang') }}" required>
+                    <input type="text" name="nama_barang" class="form-control" placeholder="Contoh: Laptop Thinkpad" value="{{ old('nama_barang') }}" required>
                 </div>
 
                 <div class="form-group">
                     <label>Ex User</label>
-                    <input type="text" name="ex_user" class="form-control" placeholder="Contoh: Budi (IT)" value="{{ old('ex_user') }}">
+                    <input type="text" name="ex_user" class="form-control" placeholder="Contoh: Harry" value="{{ old('ex_user') }}">
                 </div>
 
                 <div class="form-group">
                     <label>Tipe <span class="required">*</span></label>
-                    <input type="text" name="tipe" class="form-control" placeholder="Contoh: Dell OptiPlex 7080, Core i7" value="{{ old('tipe') }}" required>
+                    <input type="text" name="tipe" class="form-control" placeholder="Contoh: T2456 Core i7" value="{{ old('tipe') }}" required>
                 </div>
 
                 <div class="form-group">
@@ -222,11 +222,12 @@
                 <div class="form-group">
                     <label>Nomor Asset <span class="required">*</span></label>
                     <input type="number" name="nomor_asset" class="form-control" placeholder="Hanya Angka (Contoh: 109)" value="{{ old('nomor_asset') }}" required>
+                    <small style="color: red; font-size: 13px; display: block; margin-top: 5px;">Notes: Jika tidak ada nomor asset gunakan Serial Number Perangkat.</small>
                 </div>
 
                 <div class="form-group">
                     <label>Jumlah Unit <span class="required">*</span></label>
-                    <input type="number" name="jumlah_unit" class="form-control" placeholder="1" min="1" value="{{ old('jumlah_unit') }}" required>
+                    <input type="number" name="jumlah_unit" class="form-control" min="1" value="{{ old('jumlah_unit') }}" required>
                 </div>
             </div>
 
