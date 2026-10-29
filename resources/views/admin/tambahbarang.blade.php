@@ -224,7 +224,6 @@
             <p>Masukkan detail aset IT ke dalam inventaris gudang.</p>
         </div>
 
-        <!-- PERUBAHAN DI SINI: MENGGUNAKAN CSS ANIMATION -->
         @if(session('success'))
             <div class="alert-success auto-hide-alert">{{ session('success') }}</div>
             <style>
@@ -275,11 +274,11 @@
                     <div class="kategori-wrapper">
                         <select name="kategori_barang" class="form-control" required>
                             <option value="" disabled selected>--Pilih Kategori--</option>
-                            @foreach ($kategori as $kat)
-                                <option value="{{ $kat->id_kategori }}" {{ old('kategori_barang') == $kat->id_kategori ? 'selected':'' }}>
-                                    {{ $kat->jenis_kategori }}
-                                </option>
-                            @endforeach
+                        @foreach ($kategori->sortBy('jenis_kategori') as $kat)
+                            <option value="{{ $kat->id_kategori }}" {{ old('kategori_barang') == $kat->id_kategori ? 'selected':'' }}>
+                                {{ $kat->jenis_kategori }}
+                            </option>
+                        @endforeach
                         </select>
                         <button type="button" class="btn-tambah-kat" onclick="openKategoriModal()">+ Kategori</button>
                     </div>

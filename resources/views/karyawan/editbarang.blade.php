@@ -90,7 +90,7 @@
                 <select name="id_kategori" class="form-control" required>
                     <option value="">Pilih Kategori</option>
                     @foreach($kategori as $kat)
-                        <option value="{{ $kat->id_kategori }}" {{ $barang->id_kategori == $kat->id_kategori ? 'selected' : '' }}>
+                       <option value="{{ $kat->id_kategori }}" {{ $barang->kategori_barang == $kat->id_kategori ? 'selected' : '' }}>
                             {{ $kat->jenis_kategori }}
                         </option>
                     @endforeach
@@ -128,6 +128,11 @@
                     <option value="Ready" {{ $barang->status_barang == 'Ready' ? 'selected' : '' }}>Ready</option>
                     <option value="Rusak" {{ $barang->status_barang == 'Rusak' ? 'selected' : '' }}>Rusak</option>
                 </select>
+            </div>
+
+            <div class="form-group">
+                <label>Jumlah Unit</label>
+                <input type="number" name="jumlah_unit" class="form-control" value="{{ $barang->jumlah_unit }}" required>
             </div>
 
             <div class="btn-group">

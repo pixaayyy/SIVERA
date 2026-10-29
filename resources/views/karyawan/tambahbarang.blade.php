@@ -183,7 +183,7 @@
                     <label>Kategori Barang <span class="required">*</span></label>
                     <select name="kategori_barang" class="form-control" required>
                         <option value="" disabled selected>--Pilih Kategori--</option>
-                        @foreach ($kategori as $kat )
+                        @foreach ($kategori->sortBy('jenis_kategori') as $kat)
                             <option value="{{ $kat->id_kategori }}" {{ old('kategori_barang') == $kat->id_kategori ? 'selected':'' }}>
                                 {{ $kat->jenis_kategori }}
                             </option>

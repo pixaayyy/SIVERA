@@ -13,7 +13,7 @@ class TambahbarangController extends Controller
 {
     public function index()
     {
-        $kategori = DB::table('kategori')->get();
+        $kategori = DB::table('kategori')->orderBy('jenis_kategori', 'asc')->get();
         return view('admin.tambahbarang', compact('kategori'));
     }
 

@@ -37,8 +37,10 @@ class EditBarangController extends Controller
             'nama_barang'     => $request->nama_barang,
             'tipe'            => $request->tipe,
             'ex_user'         => $request->ex_user,
+            'departemen'      => $request->departemen,
             'nomor_asset'     => $request->nomor_asset,
             'status_barang'   => $request->status_barang,
+            'jumlah_unit'     => $request->jumlah_unit,  
         ]);
 
         return redirect()->route('admin.databarang')->with('success', 'Data barang berhasil diperbarui!');
