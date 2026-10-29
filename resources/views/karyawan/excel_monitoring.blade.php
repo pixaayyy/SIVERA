@@ -1,7 +1,7 @@
 <table>
     <tr>
         <td colspan="7" style="font-size: 14px; font-weight: bold; text-align: center; border: none;">
-            DATA BARANG INVENTARIS GUDANG DEPARTEMEN IT
+            Data Barang Inventaris Gudang Departemen IT
         </td>
     </tr>
     <tr>
@@ -52,6 +52,23 @@
     </tbody>
 
     <tr><td colspan="7" style="border: none;"></td></tr>
+    <tr>
+        <td colspan="7" style="font-size: 11px; font-weight: bold; border: none; text-align: left;">
+            REKAPITULASI JUMLAH UNIT PER KATEGORI:
+        </td>
+    </tr>
+    <tr style="background-color: #ebf8ff;">
+        <td colspan="4" style="border: 1px solid #cbd5e0; font-weight: bold; text-align: center;">Jenis Kategori</td>
+        <td colspan="3" style="border: 1px solid #cbd5e0; font-weight: bold; text-align: center;">Total Unit</td>
+    </tr>
+    @foreach($rekapKategori as $rekap)
+    <tr>
+        <td colspan="4" style="border: 1px solid #cbd5e0; text-align: left; padding: 5px;">{{ $rekap->kategori ? $rekap->kategori->jenis_kategori : '-' }}</td>
+        <td colspan="3" style="border: 1px solid #cbd5e0; text-align: center; padding: 5px;">{{ $rekap->total_unit }} Unit</td>
+    </tr>
+    @endforeach
+
+    <tr><td colspan="7" style="border: none;"></td></tr>
     <tr><td colspan="7" style="border: none;"></td></tr>
     <tr>
         <td colspan="5" style="border: none;"></td>
@@ -65,7 +82,7 @@
             Kepala Departemen IT
         </td>
     </tr>
-    <tr><td colspan="7" style="border: none; height: 40px;"></td></tr> <!-- Ruang TTD -->
+    <tr><td colspan="7" style="border: none; height: 40px;"></td></tr>
     <tr>
         <td colspan="5" style="border: none;"></td>
         <td colspan="2" style="text-align: center; border: none; font-size: 11px;">
